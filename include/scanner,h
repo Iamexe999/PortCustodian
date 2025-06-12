@@ -1,0 +1,16 @@
+#pragma once
+#include <vector>
+#include <string>
+
+class PortScanner {
+public:
+    PortScanner(const std::string& target);
+    void scanPorts(int start, int end);
+    void detectServices();
+    std::vector<int> getOpenPorts() const;
+
+private:
+    std::string targetIP;
+    std::vector<int> openPorts;
+    bool isPortOpen(int port);
+};
